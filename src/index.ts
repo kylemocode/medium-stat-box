@@ -14,12 +14,15 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
   const { GIST_ID, GH_PAT, MEDIUM_USER_NAME } = process.env;
   let apiResponse: AxiosResponse<any>;
   let followerCount;
+  let slicedData;
+  let articlesContent: unknown[][] = [];
 
   if (!GIST_ID || !GH_PAT || !MEDIUM_USER_NAME) return;
 
   // Get user's medium data
   try {
     apiResponse = await axios.get(MEDIUM_API_BASE_URL + MEDIUM_USER_NAME);
+    slicedData = apiResponse.data.items.slice(0, 3);
     console.log(apiResponse);
   } catch (err) {
     console.error(err);
@@ -29,22 +32,24 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
   const $ = cheerio.load(res.data);
   //@ts-ignore
   followerCount = $('a')['3'].children[0].data;
-  console.log(followerCount);
+
+  slicedData.forEach(item => {
+    articlesContent.push([item]);
+  })
 
   const gistContent = table(
     arrayFormater([
       [`@${MEDIUM_USER_NAME}`, followerCount],
-      ['post1', '2020-01-17'],
-      ['post2', '2020-05-27'],
+      [`${MEDIUM_PROFILE_BASE_URL}${MEDIUM_USER_NAME}`, ''],
+      ...articlesContent as string[][],
     ]),
     { align: ['l', 'r'] }
   );
-  console.log(gistContent);
 
   const box = new GistBox({ id: GIST_ID, token: GH_PAT });
 
   try {
-    await box.update({ filename: 'medium-stat.md', content: `[@oldmo860617](${MEDIUM_PROFILE_BASE_URL}${MEDIUM_USER_NAME})` });
+    await box.update({ filename: 'medium-stat.md', content: gistContent });
   } catch (err) {
     console.error(err);
   }
