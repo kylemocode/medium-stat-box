@@ -35,7 +35,7 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
 
   const gistContent = table(
     arrayFormater([
-      [`Latest medium articles`, '123'],
+      [`@${MEDIUM_USER_NAME}`, followerCount],
       ['post1', '2020-01-17'],
       ['post2', '2020-05-27'],
     ]),
