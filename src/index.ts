@@ -33,9 +33,9 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
 
   const gistContent = table(
     arrayFormater([
-      [`[@${MEDIUM_USER_NAME}](https://medium.com/@${MEDIUM_USER_NAME})`, followerCount],
-      ['post1', '2020-01-17'],
-      ['post2', '2020-05-27'],
+      [`[@${MEDIUM_USER_NAME}](https://medium.com/@${MEDIUM_USER_NAME})`, `followerCount\n`],
+      ['post1', '2020-01-17\n'],
+      ['post2', '2020-05-27\n'],
     ]),
     { align: ['l', 'r'] }
   );
