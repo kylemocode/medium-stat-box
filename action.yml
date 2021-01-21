@@ -1,0 +1,9 @@
+name: "medium-stat-box"
+author: "kylemocode"
+description: "Show your medium stat and latest articles."
+branding:
+  icon: "activity"
+  color: "green"
+runs:
+  using: "node12"
+  main: "lib/index.js"
