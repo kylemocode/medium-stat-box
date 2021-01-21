@@ -4,6 +4,7 @@ import table from 'text-table';
 import cheerio from 'cheerio';
 
 import { arrayFormater } from './utils';
+import { stringify } from 'querystring';
 require('dotenv').config();
 
 const MEDIUM_API_BASE_URL =
@@ -34,7 +35,10 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
   followerCount = $('a')['3'].children[0].data;
 
   slicedData.forEach(item => {
-    articlesContent.push([item.title, '']);
+    let trimTitle;
+    if (item.title.length > 16) trimTitle = item.title.slice(0, 15) + '...';
+    else trimTitle = item.title;
+    articlesContent.push([trimTitle, '']);
   })
 
   const gistContent = table(
@@ -42,7 +46,7 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
       [`@${MEDIUM_USER_NAME}`, followerCount],
       ...articlesContent as string[][],
     ]),
-    { align: ['l', 'r'] }
+    { align: ['l', 'r']}
   );
 
   const box = new GistBox({ id: GIST_ID, token: GH_PAT });
