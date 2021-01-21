@@ -25,13 +25,11 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
     console.error(err);
   }
 
-  (async function debug() {
-    const res = await axios.get(MEDIUM_PROFILE_BASE_URL + MEDIUM_USER_NAME);
-    const $ = cheerio.load(res.data);
-    //@ts-ignore
-    followerCount = $('a')['3'].children[0].data;
-    console.log(followerCount);
-  })();
+  const res = await axios.get(MEDIUM_PROFILE_BASE_URL + MEDIUM_USER_NAME);
+  const $ = cheerio.load(res.data);
+  //@ts-ignore
+  followerCount = $('a')['3'].children[0].data;
+  console.log(followerCount);
 
   const gistContent = table(
     arrayFormater([
