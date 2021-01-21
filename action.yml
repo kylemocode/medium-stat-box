@@ -1,0 +1,9 @@
+name: "Medium Posts Gist Box"
+author: "kylemocode"
+description: "Display your latest medium posts"
+branding:
+  icon: "activity"
+  color: "green"
+runs:
+  using: "node12"
+  main: "lib/index.js"

@@ -1,0 +1,21 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "airbnb-typescript/base"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "no-dupe-class-members": "off",
+    "import/prefer-default-export": "off"
+  },
+  "env": {
+  }
+}

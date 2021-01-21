@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "rootDir": "src/",
+        "outDir": "lib/",
+        "module": "commonjs",
+        "target": "es2017",
+        "sourceMap": false,
+        "allowJs": false,
+        "moduleResolution": "node",
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": false,
+        "strictNullChecks": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "noUnusedLocals": false,
+        "importHelpers": true,
+        "esModuleInterop": true,
+        "declaration": true,
+        "downlevelIteration": true,
+        "resolveJsonModule": true,
+        "types": [
+            "node"
+        ]
+    },
+    "exclude": [
+        "node_modules",
+        "public",
+        "build",
+        "scripts",
+        "acceptance-tests",
+        "src/setupTests.ts",
+        "test/",
+        "test-data/"
+    ]
+}

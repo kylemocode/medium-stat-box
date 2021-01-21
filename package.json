@@ -1,0 +1,40 @@
+{
+  "name": "douban-box",
+  "version": "1.1.2",
+  "main": "lib/ndex.js",
+  "repository": "git@github.com:CodeDaraW/douban-box.git",
+  "author": "CodeDaraW <CodeDaraW@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "douban-box": "lib/index.js"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js,.ts ./src",
+    "build": "rm -rf lib && tsc",
+    "prepublish": "npm run build"
+  },
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
+    "dotenv": "^8.2.0",
+    "gist-box": "^0.3.0",
+    "text-table": "^0.2.0",
+    "tslib": "^1.11.0"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.16",
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^13.7.4",
+    "@types/text-table": "^0.2.1",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-typescript": "^7.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.2"
+  }
+}
