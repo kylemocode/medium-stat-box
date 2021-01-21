@@ -34,7 +34,7 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
   followerCount = $('a')['3'].children[0].data;
 
   slicedData.forEach(item => {
-    articlesContent.push([item, '']);
+    articlesContent.push([JSON.stringify(item), '']);
   })
 
   const gistContent = table(
