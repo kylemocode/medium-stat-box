@@ -34,13 +34,12 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
   followerCount = $('a')['3'].children[0].data;
 
   slicedData.forEach(item => {
-    articlesContent.push([item]);
+    articlesContent.push([item, '']);
   })
 
   const gistContent = table(
     arrayFormater([
       [`@${MEDIUM_USER_NAME}`, followerCount],
-      [`${MEDIUM_PROFILE_BASE_URL}${MEDIUM_USER_NAME}`, ''],
       ...articlesContent as string[][],
     ]),
     { align: ['l', 'r'] }
