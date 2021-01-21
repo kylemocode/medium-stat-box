@@ -33,17 +33,18 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
 
   const gistContent = table(
     arrayFormater([
-      [`[@${MEDIUM_USER_NAME}](https://medium.com/@${MEDIUM_USER_NAME})`, `followerCount\n`],
-      ['post1', '2020-01-17\n'],
-      ['post2', '2020-05-27\n'],
+      [`@${MEDIUM_USER_NAME}`, followerCount],
+      ['post1', '2020-01-17'],
+      ['post2', '2020-05-27'],
     ]),
     { align: ['l', 'r'] }
   );
+  console.log(gistContent);
 
   const box = new GistBox({ id: GIST_ID, token: GH_PAT });
 
   try {
-    await box.update({ filename: 'medium-stat.md', content: gistContent });
+    await box.update({ filename: 'medium-stat.md', content: `[@oldmo860617](${MEDIUM_PROFILE_BASE_URL}${MEDIUM_USER_NAME})` });
   } catch (err) {
     console.error(err);
   }
