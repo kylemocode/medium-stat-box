@@ -52,6 +52,7 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
   const gistContent = table(
     [
       [`@${MEDIUM_USER_NAME}`, followerCount],
+      ['Latest Articles', '👇'],
       ...articlesContent as string[][],
     ],
     { align: ['l', 'r'], stringLength: () => 20 }
