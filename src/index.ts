@@ -44,7 +44,7 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
 
   slicedData.forEach(item => {
     let trimTitle;
-    if (item.title.length > 15) trimTitle = item.title.slice(0, 16) + '...';
+    if (item.title.length > 20) trimTitle = item.title.slice(0, 21) + '...';
     else trimTitle = item.title;
     articlesContent.push([trimTitle, `${item.claps}👏`]);
   })
