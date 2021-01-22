@@ -4,7 +4,6 @@ import table from 'text-table';
 import cheerio from 'cheerio';
 
 import { arrayFormater } from './utils';
-import { stringify } from 'querystring';
 require('dotenv').config();
 
 const MEDIUM_API_BASE_URL =
@@ -23,7 +22,16 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
   // Get user's medium data
   try {
     apiResponse = await axios.get(MEDIUM_API_BASE_URL + MEDIUM_USER_NAME);
-    slicedData = apiResponse.data.items.slice(0, 3);
+    slicedData = await Promise.all(apiResponse.data.items
+      .filter(item => item.categories.length !== 0)
+      .slice(0, 3)
+      .map(async item => {
+        const res = await axios.get(item.guid);
+        const $ = cheerio.load(res.data);
+        const text = $('button').text();
+        let matches = text.match(/\d+(\.\d{1,2})?K?\s?/); 
+        return { title: item.title, claps: matches ? matches[0] : 0 };
+      }));
     console.log(apiResponse);
   } catch (err) {
     console.error(err);
@@ -36,9 +44,9 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
 
   slicedData.forEach(item => {
     let trimTitle;
-    if (item.title.length > 16) trimTitle = item.title.slice(0, 15) + '...';
+    if (item.title.length > 16) trimTitle = item.title.slice(0, 16) + '...';
     else trimTitle = item.title;
-    articlesContent.push([trimTitle, '']);
+    articlesContent.push([trimTitle, `${item.claps}👏`]);
   })
 
   const gistContent = table(
