@@ -42,7 +42,7 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
 
   slicedData.forEach(item => {
     let trimTitle;
-    if (item.title.length > 20) trimTitle = item.title.slice(0, 21) + '...';
+    if (item.title.length > 25) trimTitle = item.title.slice(0, 25) + '...';
     else trimTitle = item.title;
     articlesContent.push([trimTitle, `${item.claps}👏`]);
   })
@@ -53,7 +53,7 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
       ['Latest Articles', '👇'],
       ...articlesContent as string[][],
     ],
-    { align: ['l', 'r'], stringLength: () => 20 }
+    { align: ['l', 'r'] }
   );
 
   const box = new GistBox({ id: GIST_ID, token: GH_PAT });
