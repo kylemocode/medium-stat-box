@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '12.x'
       - name: Install dependencies
-        run: npm install
+        run: npm install --no-optional
       - name: Cache NPM dependencies
         uses: actions/cache@v1
         with:
