@@ -4,26 +4,13 @@ on:
     branches:
       - master
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 */8 * * *" # update every 8 hours
 jobs:
-  checker:
+  update-gist:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-      - name: Install dependencies
-        run: npm install --no-optional
-      - name: Cache NPM dependencies
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-npm-cache
-          restore-keys: |
-            ${{ runner.OS }}-npm-cache
-      - name: build
+      - uses: actions/checkout@v2
+      - name: Update gist
         uses: kylemocode/medium-stat-box@master
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
