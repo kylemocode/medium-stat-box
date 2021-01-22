@@ -43,10 +43,10 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
   followerCount = $('a')['3'].children[0].data;
 
   slicedData.forEach(item => {
-    let trimTitle;
-    if (item.title.length > 16) trimTitle = item.title.slice(0, 16) + '...';
-    else trimTitle = item.title;
-    articlesContent.push([trimTitle, `${item.claps}👏`]);
+    // let trimTitle;
+    // if (item.title.length > 16) trimTitle = item.title.slice(0, 16) + '...';
+    // else trimTitle = item.title;
+    articlesContent.push([item.title, `${item.claps}👏`]);
   })
 
   const gistContent = table(
@@ -54,7 +54,7 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
       [`@${MEDIUM_USER_NAME}`, followerCount],
       ...articlesContent as string[][],
     ]),
-    { align: ['l', 'r']}
+    { align: ['l', 'r'], stringLength: (str) => str.length > 16 ? 16 : str.length}
   );
 
   const box = new GistBox({ id: GIST_ID, token: GH_PAT });
