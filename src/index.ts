@@ -3,7 +3,7 @@ import { GistBox } from 'gist-box';
 import table from 'text-table';
 import cheerio from 'cheerio';
 
-import { arrayFormater } from './utils';
+// import { arrayFormater } from './utils';
 require('dotenv').config();
 
 const MEDIUM_API_BASE_URL =
@@ -50,10 +50,10 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
   })
 
   const gistContent = table(
-    arrayFormater([
+    [
       [`@${MEDIUM_USER_NAME}`, followerCount],
       ...articlesContent as string[][],
-    ]),
+    ],
     { align: ['l', 'r'] }
   );
 
