@@ -54,7 +54,7 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
       [`@${MEDIUM_USER_NAME}`, followerCount],
       ...articlesContent as string[][],
     ],
-    { align: ['l', 'r'] }
+    { align: ['l', 'r'], stringLength: () => 20 }
   );
 
   const box = new GistBox({ id: GIST_ID, token: GH_PAT });
