@@ -61,7 +61,7 @@ interface APIResponse {
   const res = await axios.get(MEDIUM_PROFILE_BASE_URL + MEDIUM_USER_NAME);
   const $ = cheerio.load(res.data);
   followerCount = $('a')['3'].children[0].data;
-  if (followerCount === 'About') followerCount = '0';
+  if (followerCount === 'About') followerCount = '0 follower';
 
   slicedData.forEach(item => {
     let trimTitle;
