@@ -13,6 +13,10 @@ jobs:
         with:
           node-version: 12
       - uses: actions/checkout@v2
+      - name: update npm
+        run: npm install -g npm@latest
+      - name: install util core
+        run: npm i core-util-is
       - name: install dependencies
         run: npm install
       - name: build
