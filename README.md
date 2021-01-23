@@ -20,6 +20,8 @@ This project uses Medium RSS API to get personal profile data and uses cheerio t
 - Medium username and number of followers
 - Latest 3 articles and their claps count
 
+> warning: medium articles with no categories will be filtered
+
 ## Setup
 
 ### Prep work
