@@ -33,6 +33,7 @@ interface APIResponse {
   } = process.env;
   let apiResponse: AxiosResponse<APIResponse>;
   let followerCount: string;
+  let username: string;
   let slicedData: IMappedData[];
   let articlesContent: string[][] = [];
 
@@ -61,6 +62,7 @@ interface APIResponse {
   const res = await axios.get(MEDIUM_PROFILE_BASE_URL + MEDIUM_USER_NAME);
   const $ = cheerio.load(res.data);
   followerCount = $('a')['3'].children[0].data;
+  username = $('a')['2'].children[0].children[0].data;
   if (followerCount === 'About') followerCount = '0 follower';
 
   slicedData.forEach(item => {
@@ -76,7 +78,7 @@ interface APIResponse {
 
   const gistContent = table(
     [
-      [`@${MEDIUM_USER_NAME}`, followerCount],
+      [`@${username}`, followerCount],
       ['Latest Articles', '👇'],
       ...articlesContent,
     ],
