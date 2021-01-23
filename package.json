@@ -1,12 +1,12 @@
 {
   "name": "medium-stat-box",
   "version": "1.0.0",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "author": "kylemocode",
   "license": "MIT",
   "scripts": {
     "lint": "eslint --ext .js,.ts ./src",
-    "build": "rm -rf lib && tsc && ncc build lib/index.js --minify && find lib/ -type f -not -name 'index.js' -delete",
+    "build": "rm -rf lib && tsc && ncc build dist/index.js --minify && find dist/ -type f -not -name 'index.js' -delete",
     "prepublish": "npm run build"
   },
   "files": [

@@ -79,7 +79,7 @@ interface APIResponse {
   const gistContent = table(
     [
       [`@${username}`, followerCount],
-      ['Latest Articles', '👇'],
+      ['Latest Articles - ', '👇'],
       ...articlesContent,
     ],
     { align: ['l', 'r'], stringLength: () => 20 }
