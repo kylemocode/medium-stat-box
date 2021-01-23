@@ -13,6 +13,7 @@ jobs:
         with:
           node-version: 12
       - uses: actions/checkout@v2
+      - name: install dependencies
         run: npm install
       - name: Update gist
         uses: kylemocode/medium-stat-box@master
