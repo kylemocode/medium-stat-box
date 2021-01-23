@@ -69,6 +69,10 @@ interface APIResponse {
     articlesContent.push([trimTitle, `👏${item.claps}`]);
   })
 
+  if (slicedData.length === 0) {
+    articlesContent.push(['You have no posts in Medium...', '😢'])
+  }
+
   const gistContent = table(
     [
       [`@${MEDIUM_USER_NAME}`, followerCount],
