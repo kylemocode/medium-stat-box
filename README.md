@@ -14,6 +14,7 @@
 </p>
 
 > This project is inspired by many projects collected in [awesome-pinned-gists](https://github.com/matchai/awesome-pinned-gists)
+> You can see example in my [github pinned projects](https://github.com/kylemocode)
 
 ## Overview
 This project uses Medium RSS API to get personal profile data and uses cheerio to crawl more details such as follower count and claps of articles. The following details will be displayed in pinned gist:
