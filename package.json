@@ -6,8 +6,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint --ext .js,.ts ./src",
-    "build": "rm -rf lib && tsc && ncc build dist/index.js --minify && find dist/ -type f -not -name 'index.js' -delete",
-    "prepublish": "npm run build"
+    "build": "rm -rf lib && tsc && ncc build dist/index.js --minify && find dist/ -type f -not -name 'index.js' -delete"
   },
   "files": [
     "lib"

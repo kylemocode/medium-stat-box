@@ -32,6 +32,8 @@
         "acceptance-tests",
         "src/setupTests.ts",
         "test/",
-        "test-data/"
+        "test-data/",
+        "dist",
+        "**/*.d.ts"
     ]
 }
