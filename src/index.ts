@@ -44,7 +44,7 @@ const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
     let trimTitle;
     if (item.title.length > 25) trimTitle = item.title.slice(0, 25) + '...';
     else trimTitle = item.title;
-    articlesContent.push([trimTitle, `${item.claps}👏`]);
+    articlesContent.push([trimTitle, `👏${item.claps}`]);
   })
 
   const gistContent = table(
