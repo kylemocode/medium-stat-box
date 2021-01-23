@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="https://i.imgur.com/e37Imfn.png" alt="screenshot" width="500">
+   <img src="https://i.imgur.com/SNyY96b.png" alt="screenshot" width="500">
   <h3 align="center">📌 Medium Stat Box</h3>
 </p>
 
