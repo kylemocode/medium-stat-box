@@ -78,7 +78,7 @@ interface APIResponse {
 
   const gistContent = table(
     [
-      [`@${username}`, followerCount],
+      [`@${username}`, `${followerCount} 👤`],
       ['Latest Articles', '👇'],
       ...articlesContent,
     ],
