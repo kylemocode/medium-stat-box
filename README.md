@@ -39,7 +39,7 @@ This project uses Medium RSS API to get personal profile data and uses cheerio t
    - **GH_PAT:** The personal access token generated above.
    - **GIST_ID:** The ID portion from your gist url:
     ex: https://gist.github.com/kylemocode/ **44ccec1f7d16680a7a42a2e91a2d0d4c**
-   - **MEDIUM_USER_NAME** The user name of your medium account
+   - **MEDIUM_USER_NAME:** The user name of your medium account
     ex: https://medium.com/@ **oldmo860617** 
 
 5. [Pin your gist](https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)
