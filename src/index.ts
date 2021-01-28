@@ -4,8 +4,8 @@ import table from 'text-table';
 import cheerio from 'cheerio';
 require('dotenv').config();
 
-const CLAPS_COUNT_REGEX = /\d+(\.\d{1,2})?K?\s?/;
 const FOLLOWERS_COUNT_REGEX = /\d+\sFollowers/;
+const CLAPS_COUNT_REGEX = /\d+(\.\d{1,2})?K?\s?/;
 const MAX_STR_LENGTH = 25;
 const MEDIUM_API_BASE_URL =
   'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@';
