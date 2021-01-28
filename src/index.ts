@@ -5,6 +5,7 @@ import cheerio from 'cheerio';
 require('dotenv').config();
 
 const CLAPS_COUNT_REGEX = /\d+(\.\d{1,2})?K?\s?/;
+const FOLLOWERS_COUNT_REGEX = /\d+\sFollowers/;
 const MAX_STR_LENGTH = 25;
 const MEDIUM_API_BASE_URL =
   'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@';
@@ -33,7 +34,6 @@ interface APIResponse {
   } = process.env;
   let apiResponse: AxiosResponse<APIResponse>;
   let followerCount: string;
-  let username: string;
   let slicedData: IMappedData[];
   let articlesContent: string[][] = [];
 
@@ -61,9 +61,8 @@ interface APIResponse {
   // Get user's follower count
   const res = await axios.get(MEDIUM_PROFILE_BASE_URL + MEDIUM_USER_NAME);
   const $ = cheerio.load(res.data);
-  followerCount = $('a')['3'].children[0].data;
-  username = $('a')['2'].children[0].children[0].data;
-  if (followerCount === 'About') followerCount = '0 follower';
+  const followerCountMatchList= $('a').text().match(FOLLOWERS_COUNT_REGEX);
+  followerCount = followerCountMatchList ? followerCountMatchList[0] : '0 Follower';
 
   slicedData.forEach(item => {
     let trimTitle;
@@ -78,7 +77,7 @@ interface APIResponse {
 
   const gistContent = table(
     [
-      [`@${username}`, `${followerCount} 🕴`],
+      [`@${MEDIUM_USER_NAME}`, `${followerCount} 🕴`],
       ['Latest Articles', '👇'],
       ...articlesContent,
     ],
