@@ -33,8 +33,8 @@ This project uses Medium RSS API to get personal profile data and uses cheerio t
 ### Project setup
 
 1. Fork this repo
-2. Go to the fork repo **Actions** tab to enable workflow in fork repo
-3. Go to the repo **Settings > Secrets**
+2. Go to the fork repo's **Actions** tab to enable workflow in fork repo
+3. Go to the fork repo's **Settings > Secrets**
 4. Add the following environment variables:
    - **GH_PAT:** The personal access token generated above.
    - **GIST_ID:** The ID portion from your gist url:
