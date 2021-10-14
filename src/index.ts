@@ -4,7 +4,7 @@ import table from 'text-table';
 import cheerio from 'cheerio';
 require('dotenv').config();
 
-const FOLLOWERS_COUNT_REGEX = /[\d+A-Z?]*\sFollowers/;
+const FOLLOWERS_COUNT_REGEX = /[\d+*\.*A-Z?]*\sFollowers/;
 const CLAPS_COUNT_REGEX = /\d+(\.\d{1,2})?K?\s?/;
 const MAX_STR_LENGTH = 25;
 const MEDIUM_API_BASE_URL =
