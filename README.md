@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="https://i.imgur.com/SNyY96b.png" alt="screenshot" width="500">
+   <img src="https://i.imgur.com/lTFt1CF.png" alt="screenshot" width="500">
   <h3 align="center">📌 Medium Stat Box</h3>
 </p>
 
@@ -44,3 +44,7 @@ This project uses Medium RSS API to get personal profile data and uses cheerio t
 
 5. [Pin your gist](https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)
 6. Wait for it to update (the github aciton cron job will run every 8 hours), or you can manually push the repo to trigger the action.
+
+## Change Log
+
+`2021/10/14` : Update crawler regex for followers
