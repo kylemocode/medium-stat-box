@@ -62,7 +62,7 @@ interface APIResponse {
   const followerCountMatchList = $('a').text().match(FOLLOWERS_COUNT_REGEX);
   followerCount = followerCountMatchList
     ? followerCountMatchList[0]
-    : '??? Follower';
+    : '??? Followers';
 
   slicedData.forEach((item) => {
     let trimTitle;
