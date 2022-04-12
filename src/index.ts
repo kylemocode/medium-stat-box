@@ -42,12 +42,12 @@ interface APIResponse {
     // Use cheerio to get articles' claps count
     slicedData = await Promise.all(
       apiResponse.data.items
-        .filter((item) => item.categories.length !== 0) // filter comment
+        .filter(item => item.categories.length !== 0) // filter comment
         .slice(0, 3) // latest 3 articles
-        .map(async (item) => {
+        .map(async item => {
           const res = await axios.get(item.guid);
           const $ = cheerio.load(res.data);
-          const text = $('button').text();
+          const text = $('p.bo > button.au.av').first().text();
           let matches = text.match(CLAPS_COUNT_REGEX);
           return { title: item.title, claps: matches ? matches[0] : '0' };
         })
@@ -59,12 +59,14 @@ interface APIResponse {
   // Get user's follower count
   const res = await axios.get(MEDIUM_PROFILE_BASE_URL + MEDIUM_USER_NAME);
   const $ = cheerio.load(res.data);
-  const followerCountMatchList = $('a').text().match(FOLLOWERS_COUNT_REGEX);
+  const followerCountMatchList = $('button')
+    .text()
+    .match(FOLLOWERS_COUNT_REGEX);
   followerCount = followerCountMatchList
     ? followerCountMatchList[0]
     : '??? Followers';
 
-  slicedData.forEach((item) => {
+  slicedData.forEach(item => {
     let trimTitle;
     if (item.title.length > MAX_STR_LENGTH)
       trimTitle = item.title.slice(0, MAX_STR_LENGTH) + '...';
