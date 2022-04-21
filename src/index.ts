@@ -47,7 +47,7 @@ interface APIResponse {
         .map(async item => {
           const res = await axios.get(item.guid);
           const $ = cheerio.load(res.data);
-          const text = $('p.bo > button.au.av').first().text();
+          const text = $('div.pw-multi-vote-count button').first().text();
           let matches = text.match(CLAPS_COUNT_REGEX);
           return { title: item.title, claps: matches ? matches[0] : '0' };
         })
