@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const FOLLOWERS_COUNT_REGEX = /[\d+*\.*A-Z?]*\sFollowers/;
 const CLAPS_COUNT_REGEX = /\d+(\.\d{1,2})?K?\s?/;
-const MAX_STR_LENGTH = 25;
+const MAX_STR_LENGTH = 30;
 const MEDIUM_API_BASE_URL =
   'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@';
 const MEDIUM_PROFILE_BASE_URL = 'https://medium.com/@';
@@ -84,7 +84,7 @@ interface APIResponse {
       ['Latest Articles', '👇'],
       ...articlesContent,
     ],
-    { align: ['l', 'r'], stringLength: () => 30 }
+    { align: ['l', 'r'], stringLength: () => 20 }
   );
 
   const box = new GistBox({ id: GIST_ID, token: GH_PAT });
