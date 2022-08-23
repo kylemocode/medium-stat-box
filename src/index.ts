@@ -71,7 +71,7 @@ interface APIResponse {
     if (item.title.length > MAX_STR_LENGTH)
       trimTitle = item.title.slice(0, MAX_STR_LENGTH) + '...';
     else trimTitle = item.title;
-    articlesContent.push([trimTitle, `👏 ${item.claps}`]);
+    articlesContent.push([trimTitle, '']);
   });
 
   if (slicedData.length === 0) {
