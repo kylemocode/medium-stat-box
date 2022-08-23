@@ -84,7 +84,7 @@ interface APIResponse {
       ['Latest Articles', '👇'],
       ...articlesContent,
     ],
-    { align: ['l', 'r'], stringLength: () => 20 }
+    { align: ['l', 'r'], stringLength: () => 30 }
   );
 
   const box = new GistBox({ id: GIST_ID, token: GH_PAT });
